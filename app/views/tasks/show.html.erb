@@ -1,5 +1,9 @@
 <h1><%= @task.title %></h1>
 
+  <div>
+    <p><%= link_to 'Edit this task', "#{@task.id}/edit" %></p>
+  </div>
+
 <p><%= @task.details %></p>
 
 <p><%= @task.completed ? "This task is completed" : "This task is not yet completed" %></p>

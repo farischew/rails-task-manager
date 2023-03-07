@@ -2,8 +2,12 @@
 
 <% @tasks.each do |task| %>
   <div>
-  <input type="checkbox" id=<%task.id%>>
-  <p><%= link_to task.title, "/tasks/#{task.id}"%></p>
+    <input type="checkbox" id=<%task.id%>>
+    <p><%= link_to task.title, "/tasks/#{task.id}"%></p>
+    <%= link_to "Delete",
+        task_path(task),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
   </div>
 <% end %>
 
