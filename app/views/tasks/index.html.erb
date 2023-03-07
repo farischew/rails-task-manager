@@ -1,15 +1,18 @@
-<h1>My Tasks</h1>
+<div class="container">
+  <h1>My Tasks</h1>
 
-<% @tasks.each do |task| %>
-  <div>
-    <input type="checkbox" id=<%task.id%>>
-    <p><%= link_to task.title, "/tasks/#{task.id}"%></p>
-    <%= link_to "Delete",
-        task_path(task),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-        %>
-  </div>
-<% end %>
+  <% @tasks.each do |task| %>
+    <div class ="d-flex gap-3 align-items-stretch">
+      <input type="checkbox" id=<%task.id%>>
+      <p class="text-align-center"><%= link_to task.title, task_path(task) %></p>
+      <%= link_to "Delete",
+          task_path(task),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+    </div>
+  <% end %>
 
+  <hr>
 
-<p><%= link_to 'Create new task', '/tasks/new' %></p>
+  <p><%= link_to 'Create new task', new_task_path %></p>
+</div>
